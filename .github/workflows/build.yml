@@ -39,3 +39,14 @@ jobs:
         cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local
         make -j4
         sudo make install
+
+    - name: Verify goesrecv version
+      run: |
+        goesrecv_version=$(goesrecv --version)
+        commit_hash=$(git rev-parse --short "$GITHUB_SHA")
+        if [[ "$goesrecv_version" == *"goesrecv -- $commit_hash"* ]]; then
+          echo "Version verification passed."
+        else
+          echo "Version verification failed. Expected: goesrecv -- $commit_hash"
+          exit 1
+        fi
