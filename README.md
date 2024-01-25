@@ -30,14 +30,7 @@ Bundled dependencies:
 
 ## Build
 
-``` shell
-git clone https://github.com/pietern/goestools
-cd goestools
-mkdir -p build
-cd build
-cmake ../ -DCMAKE_INSTALL_PREFIX=/usr/local
-ls ./src/goesdec ./src/goesproc
-```
+Refer to the [install guide](INSTALL.md).
 
 ## Usage
 
